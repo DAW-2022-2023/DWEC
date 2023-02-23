@@ -11,8 +11,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 mongoose.set('strictQuery', true);
 dotenv.config({ path: `${__dirname}/.env` });
-const uri = "mongodb://admin:password@localhost?authMechanism=DEFAULT";
-//const uri = `mongodb://${process.env.USER}:${process.env.PASSWORD}@localhost:${process.env.DBPORT}/${process.env.DBNAME}?authMechanism=DEFAULT`;
+const uri = `mongodb://${process.env.USER}:${process.env.PASSWORD}@localhost:${process.env.DBPORT}/${process.env.DBNAME}?authMechanism=DEFAULT`;
 connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Conectado a la base de datos')
