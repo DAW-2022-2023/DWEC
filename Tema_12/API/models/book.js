@@ -1,7 +1,7 @@
-import { number } from '@hapi/joi'
+
 import { Schema, model } from 'mongoose'
 
-const userSchema = Schema({
+const bookSchema = Schema({
   name: {
     type: String,
     require: true,
@@ -9,7 +9,7 @@ const userSchema = Schema({
     max: 255
   },
   pages: {
-    type: number,
+    type: Number,
     require: true,
     min: 1
   },
@@ -19,10 +19,10 @@ const userSchema = Schema({
     minlength: 6,
     maxlength: 8
   },
-  date: {
+  fecha: {
     type: Date,
     require: true,
   }
 })
 
-export default model('Book', userSchema)
+export default model('Book', bookSchema)
