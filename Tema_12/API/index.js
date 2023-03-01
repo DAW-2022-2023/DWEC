@@ -2,6 +2,7 @@ import express, { json, urlencoded } from 'express'
 import authRoutes from './routes/auth.js'
 import { connect, mongoose } from 'mongoose'
 import dashboardRoutes from './routes/dashboard.js'
+import booksRoutes from './routes/books.js'
 import verifyToken from './routes/validate-token.js'
 import cors from 'cors'
 import * as dotenv from 'dotenv'
@@ -32,8 +33,9 @@ app.use(cors(corsOptions));
 app.use(json());
 app.use(urlencoded({ extended: false }));
 
-app.use('/api/user', authRoutes)
-app.use('/api/dashboard', verifyToken, dashboardRoutes)
+app.use('/api/user', authRoutes);
+app.use('/api/dashboard', verifyToken, dashboardRoutes);
+app.use('/api/book', verifyToken, booksRoutes)
 
 
 app.get('/', (req, res) => {
