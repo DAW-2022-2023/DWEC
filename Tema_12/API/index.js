@@ -35,7 +35,7 @@ app.use(urlencoded({ extended: false }));
 
 app.use('/api/user', authRoutes);
 app.use('/api/dashboard', verifyToken, dashboardRoutes);
-app.use('/api/books', booksRoutes)
+app.use('/api/books', verifyToken, booksRoutes);
 
 
 app.get('/', (req, res) => {
