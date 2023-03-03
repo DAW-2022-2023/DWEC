@@ -1,19 +1,10 @@
-export class Book {
+import { BookCreate } from "./book.create.model";
+
+export class Book extends BookCreate {
   _id: number;
 
-  isbn: string;
-
-  name: string;
-
-  pages: number;
-
-  fecha: Date | null;
-
   constructor() {
+    super();
     this._id = 0;
-    this.isbn = "";
-    this.name = "";
-    this.pages = 0;
-    this.fecha = null;
   }
 }
