@@ -12,15 +12,29 @@
     <header></header>
     <nav></nav>
     <main>
-        <form>
+        <form method="get" action="index.html">
             <p>
                 <label for="mail">
                     <span>Please enter an email address:</span>
-                    <input type="email" minlength="3" required id="mail" name="mail" />
-                    <span class="error" aria-live="polite"></span>
+                    <input type="email" minlength="3"  id="mail" name="mail" required/>
+                    <span class="error" aria-live="polite" id="mailError"></span>
                 </label>
             </p>
-            <button>Submit</button>
+            <p>   
+                <label for="phone">
+                    <span>Please enter your phone number:</span>
+                    <input type="tel" minlength="9" minlength="9"  id="phone" name="phone" required pattern="[0-9]+"/>
+                    <span class="error" aria-live="polite" id="phoneError"></span>
+                </label>
+            </p>
+            <p>   
+                <label for="birthday">
+                    <span>Please enter your birthday:</span>
+                    <input type="date" id="birthday" name="bday">
+                    <span class="error" aria-live="polite" id="birthdayError"></span>
+                </label>
+                </p>
+            <input type="submit" value="submit">
         </form>
     </main>
     <footer></footer>
