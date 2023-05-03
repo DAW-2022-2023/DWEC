@@ -1,0 +1,23 @@
+<form [formGroup]="formulario" (ngSubmit)="submit()">
+  <p>
+    <label>Escriba su nombre
+      <input type="text" formControlName="nombre">
+    </label>
+  </p>
+  <p>
+    <label>Escriba su apellido
+      <input type="text" formControlName="apellido">
+    </label>
+  </p>
+  <p>
+    <label>Escriba su dni
+      <input type="text" formControlName="dni">
+    </label>
+  </p>
+  <p>
+    <input type="submit" value="Enviar" [disabled]="!formulario.valid">
+  </p>
+  <p>{{contador}}</p>
+  <p>{{formulario.value |json}}</p>
+  <p>{{formulario.valid}}</p>
+</form>

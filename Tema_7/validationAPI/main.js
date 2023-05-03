@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     spanError.className = "error";
     return true;
-  }
+  } 
 
   function getAge(fecha) {
     const today = new Date();
