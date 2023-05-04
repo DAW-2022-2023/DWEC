@@ -1,6 +1,5 @@
 import express, { json, urlencoded } from 'express'
 import cors from 'cors'
-
 const app = express()
 
 const productos = [
@@ -33,7 +32,6 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions));
-
 app.use(json());
 
 app.get('/', (req, res) => {
@@ -56,7 +54,24 @@ app.get('/productos/:id', (req, res) => {
   } catch (error) {
     res.json({ Error: error.message });
   }
-})
+});
+
+app.post('/productos', (req, res) => {
+
+  if (req.body.valido ?? true !== false) {
+    res.json({ Error: "El producto tiene que tener el campo valido a false" });
+    return;
+  }
+  const newProduct = {
+    idProdcuto: productos.length + 1,
+    nombre: req.body.nombre ?? "",
+    estado: req.body.estado ?? "",
+    valido: req.body.valido,
+    fecha: new Date()
+  };
+  productos.push(newProduct);
+  res.json({ Data: newProduct });
+});
 
 app.delete('/productos/:id', (req, res) => {
   try {
